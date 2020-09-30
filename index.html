@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Nikolay Smirnov M33031</title>
+
+    <meta charset="utf-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta name="description" content="Nikolay Smirnov CV">
+    <meta name="author" content="Nikolay Smirnov">
+
+
+    <link rel="stylesheet" href="outlines.css">
+
+</head>
+
+<body>
+<header>
+    <h1>Nikolay Smirnov</h1>
+    <section id="contacts">
+        <ul>
+            <li>
+                <img src="img/pin.svg" width="16" height="16" alt="pin">
+                Saint Petersburg, Russia
+            </li>
+            <li>
+                <img src="img/github.svg" width="16" height="16" alt="github">
+                <a href="https://github.com/Idutvuker">Idutvuker</a>
+            </li>
+            <li>
+                <img src="img/email.svg" width="16" height="16" alt="email">
+                <a ref="mailto:smir.nick2000+WEB@gmail.com">smir.nick2000+WEB@gmail.com</a>
+            </li>
+        </ul>
+    </section>
+
+    <nav>
+        <a href="#education">Education</a> |
+        <a href="#work_experience">Work Experience</a> |
+        <a href="#pet_projects">Pet Projects</a> |
+        <a href="#code_sample">Code Sample</a> |
+        <a href="#spirit_animal">Spirit Animal</a> |
+        <a href="#formula_for_success">Formula For Success</a>
+    </nav>
+</header>
+
+<main>
+    <section id="education">
+        <h2>Education</h2>
+        <ul>
+            <li>
+                <table cellspacing="0" cellpadding="0" width="50%"><tr>
+                    <td style="text-align:left"><a href="http://en.ifmo.ru/en/">ITMO University</a></td>
+                    <td style="text-align:right">2018-2022</td>
+                </tr></table>
+            </li>
+            <li>
+                <table cellspacing="0" cellpadding="0" width="50%"><tr>
+                    <td style="text-align:left"><a href="http://en.ifmo.ru/en/">Computer Science Center</a></td>
+                    <td style="text-align:right">2020-2022</td>
+                </tr></table>
+            </li>
+        </ul>
+    </section>
+
+    <section id="work_experience">
+        <h2>Work Experience</h2>
+        <ul>
+            <li>
+                <a href="https://www.jetbrains.com/">JetBrains</a> Software Engineering Intern, Java, Python
+                <!--<span style="float:right;">
+                    2018-2022
+                </span>-->
+                <p>
+                    Developed feature-rich data viewer for <strong>PyCharm</strong>.
+                    Data viewer allows to interact with numpy/pandas two-dimensional arrays during debug session and
+                    from Python console. <em>Thrift</em> protocol is used to pass data between Python process and Java.
+                </p>
+            </li>
+        </ul>
+    </section>
+
+    <section id="pet_projects">
+        <h2>Pet Projects</h2>
+        <dl>
+            <dt><a href="https://github.com/Idutvuker/Python-GL-toy"><b>"Python GL toy"</b></a> Python, OpenGL</dt>
+            <dd>
+                Playground for fast shader prototyping.
+                Examples: 3D IFS fractals, Mandelbrot set, Sierpinski tetrahedron.
+            </dd>
+
+            <dt><a href="https://github.com/Idutvuker/cmoonshine"><b>"Moonshine"</b></a> C++, OpenGL</dt>
+            <dd>
+                OpenGL graphics engine using core profile mode.
+                The main feature now is rendering the isosurface of a dynamic scalar field.
+                Modification of ``Marching cubes'' algorithm is used to extract indexed mesh that represents the isosurface.
+            </dd>
+        </dl>
+    </section>
+
+    <section id="code_sample">
+        <H2>Code Sample</H2>
+        <pre>
+        <code>
+#header "res\mandelbrot.head.json"
+
+out vec4 FragColor;
+
+
+float mandelbrot(in vec2 c)
+{
+    float rsq = uRadius * uRadius;
+
+    vec2 z = vec2(0);
+    float s = -1.0;
+
+    for (int i = 0; i < uIters; i++) {
+        z = vec2(z.x*z.x - z.y*z.y, 2 * z.x * z.y) + c;
+        if (dot(z, z) > rsq)
+        {
+            s = float(i);
+            break;
+        }
+        //s += 1.0;
+    }
+
+    return s;
+}
+
+void main()
+{
+    vec2 uv = 2.0 * (gl_FragCoord.xy - 0.5 * uResolution) / uResolution.y;
+    vec2 mp = -uMousePos / uResolution;
+
+    float l = mandelbrot(uv / uZoom + mp);
+
+    vec3 col = 0.5 + 0.5*sin(vec3(2.5, 2.1, 1.5) + l * uGamma);
+
+    if (l < 0.0)
+        col = vec3(0, 0, 0);
+
+    FragColor = vec4(col, 1.0);
+}
+        </code>
+        </pre>
+    </section>
+</main>
+
+<footer>
+    <section id="spirit_animal">
+        <h2>Spirit Animal</h2>
+        <pre>
+                  ████                                        ████
+                ▓▓▓▓▓▓▓▓                                    ▓▓▓▓▓▓██
+              ██▓▓▓▓▓▓▓▓██                                ██▓▓▓▓▓▓▓▓██
+            ██▓▓▓▓▓▓▓▓▓▓██                                ██▓▓▓▓▓▓▓▓▓▓██
+            ██▓▓▓▓▓▓▓▓▓▓██                                ██▓▓▓▓▓▓▓▓▓▓██
+          ██▓▓▓▓▓▓  ▓▓▓▓▓▓██                            ██▓▓▓▓▓▓░░▓▓▓▓▓▓██
+          ██▓▓▓▓▒▒  ▒▒▓▓▓▓██                            ██▓▓▓▓▒▒  ▒▒▓▓▓▓██
+          ██▓▓▓▓░░    ▓▓▓▓██                            ██▓▓██      ▓▓▓▓██
+          ██▓▓▓▓░░    ▓▓▓▓██                            ██▓▓██      ▓▓▓▓██
+        ██▓▓▓▓▓▓░░    ▓▓▓▓▓▓██                        ██▓▓▓▓██      ▓▓▓▓▓▓██
+        ██▓▓▓▓░░░░    ░░▓▓▓▓██                        ██▓▓▓▓        ░░▓▓▓▓██
+        ██▓▓▓▓░░░░    ░░▓▓▓▓▓▓██                    ██▓▓▓▓▓▓░░    ░░░░▓▓▓▓██
+        ██▓▓▓▓░░░░  ░░  ▓▓▓▓▓▓████████████████████████▓▓▓▓▓▓░░░░  ░░░░▓▓▓▓██
+        ██▒▒▒▒░░░░░░  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒██▒▒▒▒▒▒▒▒░░▒▒░░░░▒▒▒▒██
+        ██▒▒▒▒░░▒▒  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒░░▒▒▒▒██
+        ██▒▒▒▒░░░░▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒  ░░▒▒▒▒██
+    ██████▒▒▒▒  ▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒░░▒▒▒▒██████
+    ██░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒  ██
+    ██  ░░▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒░░  ██
+    ██  ▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒  ██
+      ██  ▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒  ██
+      ██  ▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒  ██
+  ████░░██░░▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒  ██  ████
+  ██░░██░░  ▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒  ░░██  ██
+  ██  ░░██  ▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒  ██    ██
+  ██        ▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒        ██
+    ██      ▒▒▒▒▒▒▒▒░░░░██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░██░░░░▒▒▒▒▒▒▒▒      ██
+      ██      ▒▒▒▒▒▒▒▒░░████░░░░░░░░░░░░░░░░░░░░░░░░░░░░████░░▒▒▒▒▒▒▒▒░░    ██
+        ██░░    ▒▒▒▒▒▒▒▒██████░░░░░░░░░░░░░░░░░░░░░░░░██████▒▒▒▒▒▒▒▒      ██
+    ██████████    ▒▒▒▒▒▒▒▒████░░░░░░░░░░░░░░░░░░░░░░░░████▒▒▒▒▒▒▒▒░░  ██████████
+  ██    ░░    ██  ▒▒▒▒▒▒▒▒▒▒████░░░░░░░░░░░░░░░░░░░░████▒▒▒▒▒▒▒▒▒▒  ██        ░░██
+    ██        ░░    ▒▒▒▒▒▒▒▒▒▒██▒▒▒▒░░░░░░░░░░░░▒▒▒▒██▒▒▒▒▒▒▒▒▒▒    ░░      ░░██
+      ██████        ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░▒▒▒▒░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒        ██████
+          ████      ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒        ▓▓██
+            ████████    ▒▒▒▒▒▒▒▒▒▒▒▒░░░░▒▒▒▒░░░░▒▒▒▒▒▒▒▒▒▒▒▒    ████████
+                    ████░░▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒░░████
+                        ██  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  ██
+                          ██  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  ██
+                            ██  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░██
+                              ██░░▒▒▒▒▓▓▒▒▒▒▓▓▒▒▒▒  ██
+                              ██  ▒▒▒▒▓▓▒▒▓▓▓▓▒▒▒▒  ██
+                                ██░░▒▒▓▓▓▓▓▓▓▓▒▒░░██
+                                ██    ████████    ██
+                                  ▓▓  ████████  ██
+                                  ▒▒▒▒▒▒░░▒▒▒▒██▒▒
+                                    ░░██░░████
+            </pre>
+    </section>
+
+    <section id="formula_for_success">
+        <h2>Formula For Success</h2>
+        <p>
+            <time datetime="1905">
+                E<sub>0</sub> = mc<sup>2</sup>
+            </time>
+        </p>
+    </section>
+</footer>
+
+</body>
+</html> 
+
